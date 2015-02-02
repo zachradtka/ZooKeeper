@@ -18,9 +18,17 @@
 		</repository>
 	</repositories>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.5</version>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<plugins>
-		
+
 			<!-- Set the compiler version -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
