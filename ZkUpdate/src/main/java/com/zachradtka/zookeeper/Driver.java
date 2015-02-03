@@ -13,7 +13,7 @@ public class Driver {
 
 	public static void update(String path, byte[] data) throws KeeperException,
 			InterruptedException {
-		zk.setData(path, data, zk.exists(path, true).getAversion());
+		zk.setData(path, data, zk.exists(path, true).getVersion());
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException,
