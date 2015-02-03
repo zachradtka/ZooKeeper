@@ -20,15 +20,21 @@ public class Driver {
 
 	public static void main(String[] args) throws IOException, InterruptedException,
 			KeeperException {
-		String path = "/test_zk";
-		byte[] data = "sample".getBytes();
+
+		// Ensure the correct number of args was passed in
+		if (args.length != 4) {
+			System.err.println("USAGE: ZkConnector <hostname> <port> <znode> <data>");
+			System.exit(1);
+		}
+
+		String hostname = args[0] + ":" + args[1];
+		String path = args[2];
+		byte[] data = args[3].getBytes();
 
 		zkc = new ZkConnector();
-
-		zk = zkc.connect("localhost");
+		zk = zkc.connect(hostname);
 
 		create(path, data);
-
 	}
 
 }
