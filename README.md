@@ -21,7 +21,7 @@ Permissions are stored using a bitmask for 5 types of permissions. The types of 
   <li>C - Create</li>
   <li>W - Write</li>
   <li>R - Read</li>
-<ul>
+</ul>
 
 ###Example 
 
