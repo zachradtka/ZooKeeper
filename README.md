@@ -13,6 +13,36 @@ This project contains sample ZooKeeper code.
 
 ## Permissions
 
+Permissions are implemented by using Access Control Lists (ACL) per znode.
+
+### Setting ACLs
+
+ACLs can be set on the command line via the `setAcl` command.
+
+```
+[zk: localhost:2181(CONNECTED) 1] setAcl path scheme:id:perm
+```
+
+They can also be retrieved by using the `getAcl` command.
+
+```
+[zk: localhost:2181(CONNECTED) 1] getAcl path
+```
+
+### Built-in ACL Schemes
+
+The following is a list of built ACL schemes:
+
+<ul>
+  <li>world - Uses a single id, anyone, that represents anyone</li>
+  <li>auth - Doesn't use any id, represents any authenticated user</li>
+  <li>digest - Uses a username:password string to generate MD5 hash which is then used as an ACL ID identity</li>
+  <li>host - Uses the client host name as an ACL ID identity</li>
+  <li>ip - Uses the client host IP as an ACL ID identity</li>
+</ul>
+
+### Permissions
+
 Permissions are stored using a bitmask for 5 types of permissions. The types of permissions are as follows:
 
 <ul>
@@ -23,7 +53,7 @@ Permissions are stored using a bitmask for 5 types of permissions. The types of 
   <li>Read (R) - You can get data from a node and list its children</li>
 </ul>
 
-###Example 
+#### Permission Examples 
 
 <table>
   <thead>
@@ -52,13 +82,20 @@ Permissions are stored using a bitmask for 5 types of permissions. The types of 
   </tbody>
 </table>
 
-### Setting ACLs
 
-ACLs can be set on the command line via the `setAcl` command.
 
-The format for `setAcl` is as follows.
+### `setAcl` Examples
+
+To set a node 'hello' to only have delete, write, and read access, use the folloing command:
+
 ```
-[zk: localhost:2181(CONNECTED) 1] setAcl scheme:id:perm
+[zk: localhost:2181(CONNECTED) 1] setAcl /hello world:anyone:dwr
 ```
 
+To use a digest auth you must first create the auth
+
+```
+[zk: localhost:2181(CONNECTED) 1] addauth digest username:userpass
+[zk: localhost:2181(CONNECTED) 1] setAcl /temp auth:username:userpass:car
+```
 
