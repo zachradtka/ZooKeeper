@@ -29,24 +29,24 @@ Permissions are stored using a bitmask for 5 types of permissions. The types of 
   <thead>
     <tr>
       <th>Permission</th>
-      <th style="font-face:monospace">ADCWR</th>
+      <th style="font-family:monospace">A D C W R</th>
       <th>Decimal</th>
     <tr>
   </thead>
   <tbody>
     <tr>
       <td>ADCWR</td>
-      <td style="font-face:monospace">11111</td>
+      <td style="font-family:monospace">1 1 1 1 1</td>
       <td>31</td>
     </tr>
     <tr>
       <td>ADCR</td>
-      <td style="font-face:monospace">11101</td>
+      <td style="font-family:monospace">1 1 1 0 1</td>
       <td>29</td>
     </tr>
     <tr>
       <td>ACW</td>
-      <td style="font-face:monospace">10101</td>
+      <td style="font-family:monospace">1 0 1 0 1</td>
       <td>21</td>
     </tr>
   </tbody>
