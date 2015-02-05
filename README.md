@@ -16,11 +16,11 @@ This project contains sample ZooKeeper code.
 Permissions are stored using a bitmask for 5 types of permissions. The types of permissions are as follows:
 
 <ul>
-  <li>A - Admin</li>
-  <li>D - Delete</li>
-  <li>C - Create</li>
-  <li>W - Write</li>
-  <li>R - Read</li>
+  <li>Admin (A) - You can set the permissions</li>
+  <li>Delete (D) - You can delete a child node</li>
+  <li>Create (C) - You can create a child node</li>
+  <li>Write (W)- You can set data for a node</li>
+  <li>Read (R) - You can get data from a node and list its children</li>
 </ul>
 
 ###Example 
@@ -29,25 +29,36 @@ Permissions are stored using a bitmask for 5 types of permissions. The types of 
   <thead>
     <tr>
       <th>Permission</th>
-      <th>Bitmask</th>
+      <th style="font-face:monospace">ADCWR</th>
       <th>Decimal</th>
     <tr>
   </thead>
   <tbody>
     <tr>
       <td>ADCWR</td>
-      <td>11111</td>
+      <td style="font-face:monospace">11111</td>
       <td>31</td>
     </tr>
     <tr>
       <td>ADCR</td>
-      <td>11101</td>
+      <td style="font-face:monospace">11101</td>
       <td>29</td>
     </tr>
     <tr>
       <td>ACW</td>
-      <td>10101</td>
+      <td style="font-face:monospace">10101</td>
       <td>21</td>
     </tr>
   </tbody>
 </table>
+
+### Setting ACLs
+
+ACLs can be set on the command line via the `setAcl` command.
+
+The format for `setAcl` is as follows.
+```
+[zk: localhost:2181(CONNECTED) 1] setAcl scheme:id:perm
+```
+
+
